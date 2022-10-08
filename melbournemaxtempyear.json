@@ -1,0 +1,52 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/shew0015/Visualization2/main/weather_melbourne_temp_month.csv"
+    },
+    "width": 750,
+    "height": 250,
+    "mark": {
+      "type": "circle",
+      "opacity": 0.8,
+      "strokeWidth": 1
+    },
+    "encoding": {
+      "tooltip": [
+          {"field": "Year", "title": "Year", "timeUnit": "year"},
+          {"field": "Month", "title": "Month", "timeUnit": "month"},
+        {"field": "MaxTemp", "title": "Average Temperature"}
+      ],
+      "x": {
+        "field": "Month",
+        "type": "nominal",
+        "axis": {
+          "title": "Month"
+        },
+        "timeUnit": "month"
+      },
+      "y": {
+        "field": "Year",
+        "type": "nominal",
+        "timeUnit": "year",
+        "axis": {
+          "grid": false,
+          "labelAngle": 0
+          },
+        "title": "Year"
+      },
+      "size": {
+        "field": "MaxTemp",
+        "type": "quantitative", 
+        "title": "Maximum Temperature",
+        "scale": {"rangeMax": 1000},
+        "legend": {
+          "orient": "bottom"
+        }
+      },
+      "color": {
+        "field": "MaxTemp",
+        "type": "quantitative",
+        "scale": {"scheme": "yelloworangered"}
+      }
+    }
+  }

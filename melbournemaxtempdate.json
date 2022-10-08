@@ -1,0 +1,105 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+        "url": "https://raw.githubusercontent.com/shew0015/Visualization2/main/maxtemp_mintemp_two.csv"
+    },
+    "transform": [
+      {"filter": "datum.Year == year"}
+    ],
+    "params": [
+        {
+            "name": "year",
+            "value": 2009,
+            "bind": {
+                "input": "range",
+                "min": 2009,
+                "max": 2014,
+                "step": 1,
+                "name": "Year: "
+            }
+        }
+    ],
+    "spacing": 0,
+    "facet": {
+        "row": {
+            "field": "Day",
+                "type": "ordinal",
+                 "sort": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "17",
+                "18",
+                "19",
+                "20",
+                "21",
+                "22",
+                "23",
+                "24",
+                "25",
+                "26",
+                "27",
+                "28",
+                "29",
+                "30",
+                "31"
+            ]
+        }
+    },
+    "spec": {
+        "width": 750,
+        "height": 20,
+        "mark": {
+            "type": "area",
+            "color": "#f2d675"
+        },
+        "encoding": {
+          "tooltip": [
+            {"field": "Date"},
+            {"field": "MaxTemp", "title": "Maximum Temperature"}
+      ],
+            "x": {
+                "field": "Month",
+            "type": "nominal",
+            "sort": [
+                "Jan",
+                "Feb",
+                "Mar",
+                "Apr",
+                "May",
+                "Jun",
+                "Jul",
+                "Aug",
+                "Sep",
+                "Oct",
+                "Nov",
+                "Dec"
+            ],
+            "timeUnit": "month",
+            "title": "Month"
+        },
+            "y": {
+                "field": "MaxTemp",
+                "type": "quantitative",
+                "axis": {
+                    "title": null,
+                    "labels": false,
+                    "ticks": false
+                }
+            }
+        }
+    }
+}
